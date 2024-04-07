@@ -8,5 +8,5 @@ import lombok.ToString;
 @Getter
 @ToString
 public class CreateReaderResponse {
-    private String response;
+    private String readerId;
 }

@@ -5,9 +5,6 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class CreateReaderRequest {
-    private String name;
-    private String email;
-    private String password;
-
+public class ReaderLoginResponse {
+    private String message;
 }

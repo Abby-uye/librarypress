@@ -6,10 +6,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.regius_portus.The_library_press.data.models.Book;
 import com.regius_portus.The_library_press.data.models.Reader;
 import com.regius_portus.The_library_press.data.repositories.ReaderRepository;
-import com.regius_portus.The_library_press.dtos.request.CreateReaderRequest;
-import com.regius_portus.The_library_press.dtos.request.SearchBookRequest;
+import com.regius_portus.The_library_press.dtos.request.*;
 import com.regius_portus.The_library_press.dtos.response.BookSearchResponse;
 import com.regius_portus.The_library_press.dtos.response.CreateReaderResponse;
+import com.regius_portus.The_library_press.dtos.response.GetReadingListResponse;
 import com.regius_portus.The_library_press.exceptions.LibraryPressException;
 import com.regius_portus.The_library_press.exceptions.ReaderExistException;
 import jakarta.transaction.Transactional;
@@ -27,6 +27,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -39,11 +40,11 @@ public class TheLibraryPressReaderService implements ReaderService {
 
     @Override
     public CreateReaderResponse createReader(CreateReaderRequest request) throws ReaderExistException {
-        if (existingUser(request.getEmail())) throw new ReaderExistException("Reader with this details already exist");
+        if (existingUser(request.getEmail())) throw new ReaderExistException("{\"err\": \"Reader with this details already exist\"}");
         Reader reader = modelMapper.map(request, Reader.class);
         readerRepository.save(reader);
         CreateReaderResponse response = new CreateReaderResponse();
-        response.setResponse("Reader created Successfully");
+        response.setReaderId(String.valueOf(reader.getId()));
         return response;
     }
 
@@ -55,16 +56,42 @@ public class TheLibraryPressReaderService implements ReaderService {
         return getSearchBookResponse(id, jsonResponse);
     }
 
+    @Override
+    public GetReadingListResponse getAllBooks(GetReadingListRequest request) throws ReaderExistException, LibraryPressException {
+        Reader reader = findBy(request.getReaderId());
+        Hibernate.initialize(reader.getBooks());
+        List<Book> allBooks = reader.getBooks();
+        if (allBooks.isEmpty()){
+            throw new LibraryPressException("\"err\" :\"You do not have a reading list yet, search for books that you like to add to your reading list\"");
+        }
+        GetReadingListResponse response = new GetReadingListResponse();
+        response.setReadingList(reader.getBooks());
+        return response;
+    }
+
+    @Override
+    public ReaderLoginResponse login(ReaderLoginRequest request) throws ReaderExistException {
+        if(!existingUser(request.getEmail())) throw new ReaderExistException("\"err\" :\"Hello there you are not a registered user, try registering instead\"");
+        Reader foundReader = findBy(request.getEmail());
+        if(foundReader.getPassword().equals(request.getPassword())){
+            foundReader.setGrantAccess(true);
+        }
+        ReaderLoginResponse response = new ReaderLoginResponse();
+        response.setMessage("Successfully Logged in");
+
+        return response;
+    }
+
     private BookSearchResponse getSearchBookResponse(Long id, String jsonResponse) throws LibraryPressException, ReaderExistException {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode root;
         try {
             root = mapper.readTree(jsonResponse);
         } catch (JsonProcessingException e) {
-            throw new LibraryPressException("Error processing JSON response");
+            throw new LibraryPressException("\"err\" :\"Error processing JSON response\"");
         }
         if (root.get("results") == null || root.get("results").isNull()) {
-            throw new LibraryPressException("No books found with this title. Please double-check your spelling or try searching for a different book.");
+            throw new LibraryPressException("\"err\" :\"No books found with this title. Please double-check your spelling or try searching for a different book.\"");
         }
         return getSearchBook(id, root);
     }
@@ -77,7 +104,7 @@ public class TheLibraryPressReaderService implements ReaderService {
         Reader reader = findBy(readerId);
         for (JsonNode bookNode : results) {
             if (bookNode == null || bookNode.isNull()) {
-                throw new LibraryPressException("The requested book information is not available. Please double-check the book title and try again.");
+                throw new LibraryPressException("\"err\" :\"The requested book information is not available. Please double-check the book title and try again.\"");
             }
 
             String bookId = bookNode.get("id").asText();
@@ -102,7 +129,7 @@ public class TheLibraryPressReaderService implements ReaderService {
         response.setBooks(books);
 
         if (response.getBooks() == null || response.getBooks().isEmpty()) {
-            throw new LibraryPressException("Sorry, no books matching your search query were found.");
+            throw new LibraryPressException("\"err\" :\"Sorry, no books matching your search query were found.\"");
         }
 return response;
     }
@@ -117,7 +144,7 @@ return response;
 
     private Reader findBy(Long id) throws ReaderExistException {
 
-        return readerRepository.findById(id).orElseThrow(() -> new ReaderExistException(String.format("liberian with id %d not found", id)));
+        return readerRepository.findById(id).orElseThrow(() -> new ReaderExistException(String.format("\"err\" :\"reader with id %d not found\"", id)));
     }
 
     private static List<String> getLanguages(JsonNode bookNode) {
@@ -180,16 +207,19 @@ return response;
             try (CloseableHttpResponse response = httpClient.execute(httpGet)) {
                 int statusCode = response.getStatusLine().getStatusCode();
                 if (statusCode != HttpStatus.SC_OK) {
-                    throw new LibraryPressException("Failed to fetch book: HTTP status code " + statusCode);
+                    throw new LibraryPressException("\"err\" :\"Failed to fetch book: HTTP status code\" " + statusCode);
                 }
                 String jsonResponse = EntityUtils.toString(response.getEntity());
                 if (jsonResponse.isEmpty()) {
-                    throw new LibraryPressException("No response received from the server");
+                    throw new LibraryPressException("\"err\" :\"No response received from the server\"");
                 }
                 return jsonResponse;
             }
         }
     }
+
+
+
 
     private String formatBookTitle(String bookTitle) {
         return bookTitle.replace(" ", "%20");
@@ -198,4 +228,13 @@ return response;
     private boolean existingUser(String email) {
         return readerRepository.findByEmail(email).isPresent();
     }
+    private boolean existingUser(Long id){
+
+        return readerRepository.findById(id).isPresent();
+    }
+private Reader findBy(String email){
+    return readerRepository.findByEmail(email).get();
+
+
+}
 }

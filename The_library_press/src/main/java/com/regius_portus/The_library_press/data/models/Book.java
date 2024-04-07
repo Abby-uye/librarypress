@@ -37,8 +37,7 @@ public class Book {
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "book_languages",joinColumns = @JoinColumn(name = "book_id"))
     private List<String> languages ;
-    @ManyToOne
-    private Reader reader;
+
 
 
     @Override

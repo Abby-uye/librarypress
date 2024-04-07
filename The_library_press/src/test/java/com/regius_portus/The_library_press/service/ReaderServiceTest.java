@@ -1,9 +1,9 @@
 package com.regius_portus.The_library_press.service;
 
-import com.regius_portus.The_library_press.dtos.request.CreateReaderRequest;
-import com.regius_portus.The_library_press.dtos.request.SearchBookRequest;
+import com.regius_portus.The_library_press.dtos.request.*;
 import com.regius_portus.The_library_press.dtos.response.BookSearchResponse;
 import com.regius_portus.The_library_press.dtos.response.CreateReaderResponse;
+import com.regius_portus.The_library_press.dtos.response.GetReadingListResponse;
 import com.regius_portus.The_library_press.exceptions.LibraryPressException;
 import com.regius_portus.The_library_press.exceptions.ReaderExistException;
 import com.regius_portus.The_library_press.services.ReaderService;
@@ -27,7 +27,8 @@ public class ReaderServiceTest {
     public void testThatCanCreateReader() throws ReaderExistException {
         CreateReaderRequest request = new CreateReaderRequest();
         request.setName("Abby");
-        request.setEmail("Abemail");
+        request.setEmail("Abgmail");
+        request.setPassword("password");
         CreateReaderResponse response = readerService.createReader(request);
         assertNotNull(response);
     }
@@ -37,6 +38,7 @@ public class ReaderServiceTest {
         CreateReaderRequest request = new CreateReaderRequest();
         request.setName("Abbigail");
         request.setEmail("email");
+        request.setPassword("pass");
         CreateReaderResponse response = readerService.createReader(request);
         log.info("register response ->{}",response);
         assertNotNull(response);
@@ -45,9 +47,21 @@ public class ReaderServiceTest {
 @Test
     public void testThatAReaderCanSearchForABook() throws IOException, LibraryPressException, ReaderExistException {
     SearchBookRequest request = new SearchBookRequest();
-    request.setTitle("romeo and juliet");
+    request.setTitle("wizard of oz");
     BookSearchResponse response = readerService.searchBook(1L,request);
     assertNotNull(response);
+}
+
+@Test
+public void testThatReaderCanLogin() throws ReaderExistException {
+        ReaderLoginRequest request = new ReaderLoginRequest();
+        request.setEmail("Abgmail");
+        request.setPassword("password");
+        ReaderLoginResponse response = new ReaderLoginResponse();
+         response = readerService.login(request);
+        assertNotNull(response);
+        log.info("login response ->{}",response);
+
 }
 
     @Test
@@ -60,13 +74,18 @@ public class ReaderServiceTest {
     public void testThatAReaderCanSearchForAnotherBook() throws IOException, LibraryPressException, ReaderExistException {
     SearchBookRequest request = new SearchBookRequest();
     request.setTitle("Pride and Prejudice");
-    BookSearchResponse response = readerService.searchBook(1L,request);
+    BookSearchResponse response = readerService.searchBook(3L,request);
     assertNotNull(response);
     log.info("response ->{}",response);
 
 }
 @Test
-    public void testThatReaderCanGetTheirReadingList(){
+    public void testThatReaderCanGetTheirReadingList() throws ReaderExistException, LibraryPressException {
+        GetReadingListRequest request = new GetReadingListRequest();
+        request.setReaderId(1L);
+        GetReadingListResponse response = readerService.getAllBooks(request);
+        assertNotNull(response);
+        log.info("response ->{}",response);
 
 }
 

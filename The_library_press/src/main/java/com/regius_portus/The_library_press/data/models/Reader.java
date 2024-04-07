@@ -1,10 +1,12 @@
 package com.regius_portus.The_library_press.data.models;
 
-import com.fasterxml.jackson.annotation.JsonTypeId;
 import jakarta.persistence.*;
-import lombok.*;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,7 +20,14 @@ public class Reader {
     private Long id;
     private String name;
     private String email;
-    @OneToMany(mappedBy = "reader",cascade = {CascadeType.MERGE,CascadeType.REMOVE})
-    private List<Book> books;
+    private String password;
+    private boolean grantAccess;
+    @OneToMany
+    @JoinTable(
+            name = "reader_book",
+            joinColumns = @JoinColumn(name = "reader_id"),
+            inverseJoinColumns = @JoinColumn(name = "book_id")
+    )
+    private List<Book> books = new ArrayList<>();
 
 }
