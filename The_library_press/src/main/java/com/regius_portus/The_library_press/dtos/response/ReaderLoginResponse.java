@@ -1,4 +1,4 @@
-package com.regius_portus.The_library_press.dtos.request;
+package com.regius_portus.The_library_press.dtos.response;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,5 +6,5 @@ import lombok.Setter;
 @Setter
 @Getter
 public class ReaderLoginResponse {
-    private String message;
+    private String readerId;
 }

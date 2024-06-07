@@ -4,6 +4,7 @@ import com.regius_portus.The_library_press.dtos.request.*;
 import com.regius_portus.The_library_press.dtos.response.BookSearchResponse;
 import com.regius_portus.The_library_press.dtos.response.CreateReaderResponse;
 import com.regius_portus.The_library_press.dtos.response.GetReadingListResponse;
+import com.regius_portus.The_library_press.dtos.response.ReaderLoginResponse;
 import com.regius_portus.The_library_press.exceptions.LibraryPressException;
 import com.regius_portus.The_library_press.exceptions.ReaderExistException;
 

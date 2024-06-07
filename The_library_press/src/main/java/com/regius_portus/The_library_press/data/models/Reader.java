@@ -23,11 +23,11 @@ public class Reader {
     private String password;
     private boolean grantAccess;
     @OneToMany
-    @JoinTable(
-            name = "reader_book",
-            joinColumns = @JoinColumn(name = "reader_id"),
-            inverseJoinColumns = @JoinColumn(name = "book_id")
-    )
+//    @JoinTable(
+//            name = "reader_book",
+//            joinColumns = @JoinColumn(name = "reader_id"),
+//            inverseJoinColumns = @JoinColumn(name = "book_id")
+//    )
     private List<Book> books = new ArrayList<>();
 
 }

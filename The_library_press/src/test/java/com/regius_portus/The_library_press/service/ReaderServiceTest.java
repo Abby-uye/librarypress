@@ -4,6 +4,7 @@ import com.regius_portus.The_library_press.dtos.request.*;
 import com.regius_portus.The_library_press.dtos.response.BookSearchResponse;
 import com.regius_portus.The_library_press.dtos.response.CreateReaderResponse;
 import com.regius_portus.The_library_press.dtos.response.GetReadingListResponse;
+import com.regius_portus.The_library_press.dtos.response.ReaderLoginResponse;
 import com.regius_portus.The_library_press.exceptions.LibraryPressException;
 import com.regius_portus.The_library_press.exceptions.ReaderExistException;
 import com.regius_portus.The_library_press.services.ReaderService;
@@ -55,8 +56,8 @@ public class ReaderServiceTest {
 @Test
 public void testThatReaderCanLogin() throws ReaderExistException {
         ReaderLoginRequest request = new ReaderLoginRequest();
-        request.setEmail("Abgmail");
-        request.setPassword("password");
+        request.setEmail("uye@gmail.com");
+        request.setPassword("The23*hg");
         ReaderLoginResponse response = new ReaderLoginResponse();
          response = readerService.login(request);
         assertNotNull(response);

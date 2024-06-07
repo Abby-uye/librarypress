@@ -5,46 +5,65 @@ import com.regius_portus.The_library_press.dtos.response.CreateReaderResponse;
 import com.regius_portus.The_library_press.exceptions.LibraryPressException;
 import com.regius_portus.The_library_press.exceptions.ReaderExistException;
 import com.regius_portus.The_library_press.services.ReaderService;
+import com.regius_portus.The_library_press.utils.ApiResponse;
+import com.regius_portus.The_library_press.utils.GenerateApiResponse;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
 @RestController
-@RequestMapping("api/v1/the-library-app/")
+@RequestMapping("api/v1/the-library-press/")
 @CrossOrigin(origins = "*")
 @AllArgsConstructor
 public class ReaderController {
     private ReaderService readerService;
     @PostMapping("register")
-    public ResponseEntity<?> register(@RequestBody CreateReaderRequest request) {
-        try {
-            CreateReaderResponse response = readerService.createReader(request);
-            return ResponseEntity.ok().body(response);
+    public ResponseEntity<?> register(@RequestBody @Valid CreateReaderRequest request, BindingResult result) throws ReaderExistException {
+        ApiResponse errorMessage = getApiResponseResponseEntity(result);
+        if (errorMessage != null) return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+        return ResponseEntity.ok().body(readerService.createReader(request));
 
-        } catch (ReaderExistException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+
     }
     @PostMapping("search-book/{readerId}")
-    public ResponseEntity<?> searchBook(@RequestBody SearchBookRequest request, @PathVariable("readerId") Long readerId) throws IOException, LibraryPressException, ReaderExistException {
+    public ResponseEntity<?> searchBook(@RequestBody @Valid SearchBookRequest request, BindingResult result, @PathVariable("readerId") Long readerId) throws IOException, LibraryPressException, ReaderExistException {
+        ApiResponse errorMessage = getApiResponseResponseEntity(result);
+        if (errorMessage != null) return new ResponseEntity<>(errorMessage,HttpStatus.BAD_REQUEST);
         return ResponseEntity.ok().body(readerService.searchBook(readerId,request));
 }
-    @GetMapping("get-reading-list")
-    public ResponseEntity<?> getAllBooks( @RequestBody GetReadingListRequest request) throws ReaderExistException, LibraryPressException {
-    return ResponseEntity.ok().body(readerService.getAllBooks(request));
+    @PostMapping("get-reading-list")
+    public ResponseEntity<?> getAllBooks( @RequestBody @Valid GetReadingListRequest request,BindingResult result) throws ReaderExistException, LibraryPressException {
+        ApiResponse errorMessage = getApiResponseResponseEntity(result);
+        if (errorMessage != null) return new ResponseEntity<>(errorMessage,HttpStatus.BAD_REQUEST);
+        return ResponseEntity.ok().body(readerService.getAllBooks(request));
     }
     @PostMapping("login")
-    public ResponseEntity<?> login(ReaderLoginRequest request){
-        try {
-            ReaderLoginResponse response = readerService.login(request);
-            return ResponseEntity.ok().body(response);
-        }
-        catch (ReaderExistException e){
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+    public ResponseEntity<?> login(@RequestBody @Valid ReaderLoginRequest request,BindingResult result) throws ReaderExistException {
+        ApiResponse errorMessage = getApiResponseResponseEntity(result);
+        if (errorMessage != null) return new ResponseEntity<>(errorMessage,HttpStatus.BAD_REQUEST);
+        return ResponseEntity.ok().body(readerService.login(request));
 
     }
 
+
+    private ApiResponse getApiResponseResponseEntity(BindingResult result) {
+        if (result.hasErrors()) {
+            StringBuilder errorMessage = new StringBuilder("Validation error(s): ");
+            for (FieldError error : result.getFieldErrors()) {
+                errorMessage.append("Field '")
+                        .append(error.getField())
+                        .append("' ")
+                        .append(error.getDefaultMessage())
+                        .append("; ");
+            }
+            return GenerateApiResponse.validationError(errorMessage.toString());
+        }
+        return null;
+    }
 }

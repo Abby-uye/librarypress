@@ -11,4 +11,5 @@ public interface ReaderRepository extends JpaRepository<Reader,Long> {
     Optional<Reader> findByEmail(String email);
 
 
+
 }
