@@ -14,7 +14,7 @@
 	<name>The_library_press</name>
 	<description>A safe Space For All Readers</description>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>18</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
