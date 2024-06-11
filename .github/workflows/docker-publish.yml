@@ -12,8 +12,9 @@ jobs:
         image: postgres:13
         env:
           POSTGRES_DB: the_library_press
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: makeover
+          DATABASE_USERNAME: postgres
+          DATABASE_PASSWORD: makeover
+          DATABASE_URL: jdbc:postgresql://localhost:5432/the_library_press
         ports:
           - 5432:5432
         options: >-
