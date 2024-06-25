@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2b6b6899-4d3f-4f7d-bd0f-9bdd389bdafe" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2e41irfa5iPi9uvAT2eXLRhkPI2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.TheLibraryPressBookService.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testThatCanFindBook.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReaderServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReaderServiceTest.testThatAReaderCanSearchForABook.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReaderServiceTest.testThatAReaderCanSearchForAnotherBook.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReaderServiceTest.testThatCabCanCreateReader2.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReaderServiceTest.testThatCanCreateReader.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReaderServiceTest.testThatIfReaderSearchForABookThatDoesNotExistExceptionIsThrown.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReaderServiceTest.testThatReaderCanGetTheirReadingList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReaderServiceTest.testThatReaderCanLogin.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.The_library_press [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.The_library_press [install].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.TheLibraryPressApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/regiu/OneDrive/Documents/The_library_press/The_library_press/src/main/java/com/regius_portus/The_library_press/dtos/request&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/regiu/WebstormProjects/the_library_press&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.regius_portus.The_library_press.dtos.request" />
+      <recent name="com.regius_portus.The_library_press.dtos.response" />
+      <recent name="com.regius_portus.The_library_press.exceptions" />
+      <recent name="com.regius_portus.The_library_press.services" />
+      <recent name="com.regius_portus.The_library_press.service" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\regiu\OneDrive\Documents\The_library_press\The_library_press" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.regius_portus.The_library_press.dtos.response" />
+      <recent name="com.regius_portus.The_library_press.dtos.request" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+      <command value="mvn install" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.TheLibraryPressApplication">
+    <configuration name="ReaderServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="The_library_press" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.regius_portus.The_library_press.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.regius_portus.The_library_press.service" />
+      <option name="MAIN_CLASS_NAME" value="com.regius_portus.The_library_press.service.ReaderServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReaderServiceTest.testThatAReaderCanSearchForAnotherBook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="The_library_press" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.regius_portus.The_library_press.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.regius_portus.The_library_press.service" />
+      <option name="MAIN_CLASS_NAME" value="com.regius_portus.The_library_press.service.ReaderServiceTest" />
+      <option name="METHOD_NAME" value="testThatAReaderCanSearchForAnotherBook" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReaderServiceTest.testThatCanCreateReader" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="The_library_press" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.regius_portus.The_library_press.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.regius_portus.The_library_press.service" />
+      <option name="MAIN_CLASS_NAME" value="com.regius_portus.The_library_press.service.ReaderServiceTest" />
+      <option name="METHOD_NAME" value="testThatCanCreateReader" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReaderServiceTest.testThatReaderCanGetTheirReadingList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="The_library_press" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.regius_portus.The_library_press.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.regius_portus.The_library_press.service" />
+      <option name="MAIN_CLASS_NAME" value="com.regius_portus.The_library_press.service.ReaderServiceTest" />
+      <option name="METHOD_NAME" value="testThatReaderCanGetTheirReadingList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReaderServiceTest.testThatReaderCanLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="The_library_press" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.regius_portus.The_library_press.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.regius_portus.The_library_press.service" />
+      <option name="MAIN_CLASS_NAME" value="com.regius_portus.The_library_press.service.ReaderServiceTest" />
+      <option name="METHOD_NAME" value="testThatReaderCanLogin" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TheLibraryPressApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="The_library_press" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.regius_portus.The_library_press.TheLibraryPressApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ReaderServiceTest.testThatReaderCanLogin" />
+        <item itemvalue="JUnit.ReaderServiceTest.testThatReaderCanGetTheirReadingList" />
+        <item itemvalue="JUnit.ReaderServiceTest" />
+        <item itemvalue="JUnit.ReaderServiceTest.testThatCanCreateReader" />
+        <item itemvalue="JUnit.ReaderServiceTest.testThatAReaderCanSearchForAnotherBook" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2b6b6899-4d3f-4f7d-bd0f-9bdd389bdafe" name="Changes" comment="" />
+      <created>1711149168822</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711149168822</updated>
+      <workItem from="1711149172007" duration="1046000" />
+      <workItem from="1711191955284" duration="166000" />
+      <workItem from="1711214059149" duration="1817000" />
+      <workItem from="1711222308275" duration="7645000" />
+      <workItem from="1711287238089" duration="3123000" />
+      <workItem from="1711291500610" duration="11242000" />
+      <workItem from="1711367312618" duration="762000" />
+      <workItem from="1711447056008" duration="12456000" />
+      <workItem from="1711474505271" duration="10013000" />
+      <workItem from="1711635481141" duration="42000" />
+      <workItem from="1711754387627" duration="12416000" />
+      <workItem from="1711779932040" duration="3855000" />
+      <workItem from="1711848398159" duration="526000" />
+      <workItem from="1711849148051" duration="8593000" />
+      <workItem from="1711938161883" duration="14760000" />
+      <workItem from="1712004569420" duration="1332000" />
+      <workItem from="1712006133888" duration="25199000" />
+      <workItem from="1712321264450" duration="10677000" />
+      <workItem from="1712579818126" duration="75000" />
+      <workItem from="1712877370734" duration="4538000" />
+      <workItem from="1713244297825" duration="770000" />
+      <workItem from="1713266390431" duration="18000" />
+      <workItem from="1713409730134" duration="7150000" />
+      <workItem from="1713562217109" duration="608000" />
+      <workItem from="1713634290364" duration="3356000" />
+      <workItem from="1713781626583" duration="9280000" />
+      <workItem from="1713836437853" duration="2028000" />
+      <workItem from="1713911981976" duration="2812000" />
+      <workItem from="1713947510345" duration="889000" />
+      <workItem from="1714015814267" duration="10882000" />
+      <workItem from="1714296903347" duration="11061000" />
+      <workItem from="1714394661682" duration="1501000" />
+      <workItem from="1714581093936" duration="1189000" />
+      <workItem from="1714615023729" duration="810000" />
+      <workItem from="1714687040809" duration="3183000" />
+      <workItem from="1715117878734" duration="12289000" />
+      <workItem from="1715769619445" duration="8726000" />
+      <workItem from="1715853350726" duration="2215000" />
+      <workItem from="1715915794284" duration="5463000" />
+      <workItem from="1716206905009" duration="54000" />
+      <workItem from="1716981275416" duration="265000" />
+      <workItem from="1717680710854" duration="131000" />
+      <workItem from="1717686418745" duration="3397000" />
+      <workItem from="1717705743255" duration="12148000" />
+      <workItem from="1717750099345" duration="1381000" />
+      <workItem from="1717814805712" duration="597000" />
+      <workItem from="1718111726110" duration="11103000" />
+      <workItem from="1718205260591" duration="974000" />
+      <workItem from="1718674010449" duration="1190000" />
+      <workItem from="1719326643803" duration="1008000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/The_library_press/src/test/java/com/regius_portus/The_library_press/service/ReaderServiceTest.java</url>
+          <line>74</line>
+          <properties class="com.regius_portus.The_library_press.service.ReaderServiceTest" method="testThatAReaderCanSearchForAnotherBook">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/The_library_press/src/test/java/com/regius_portus/The_library_press/service/ReaderServiceTest.java</url>
+          <line>48</line>
+          <properties class="com.regius_portus.The_library_press.service.ReaderServiceTest" method="testThatAReaderCanSearchForABook">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/The_library_press/src/main/java/com/regius_portus/The_library_press/TheLibraryPressApplication.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
